@@ -1,0 +1,44 @@
+{
+  "name": "electron-fastapi-react-app",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "description": "Electron + React + FastAPI Desktop App",
+  "author": "Your Name",
+  "scripts": {
+    "electron:dev": "electron .",
+    "electron:build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.example.electronfastapi",
+    "productName": "FastAPIReactApp",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "electron/**",
+      {
+        "from": "react/dist",
+        "to": "react/dist",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "extraResources": [
+      {
+        "from": "electron/extra/run_server",
+        "to": "extra/run_server"
+      }
+    ],
+    "asar": false,
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^26.0.12"
+  }
+}
