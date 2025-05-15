@@ -18,6 +18,9 @@
     },
     "files": [
       "electron/**",
+      "!electron/node_modules/**/*",
+      "!**/tests/**",
+      "!**/*.md",
       {
         "from": "react/dist",
         "to": "react/dist",
@@ -34,7 +37,10 @@
     ],
     "asar": false,
     "win": {
-      "target": "nsis"
+      "target": [
+        "portable",
+        "dir"
+      ]
     }
   },
   "devDependencies": {
